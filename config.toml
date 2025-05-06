@@ -1,0 +1,22 @@
+theme = "catppuccin_macchiato"
+
+[editor]
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[keys.normal]
+q = "insert_newline"
+C-q = "replay_macro"
+# Makes it a little bit more like vim
+";" = "repeat_last_motion"
+L = "collapse_selection"
+C-s = ":w"
+"A-j" = [ "extend_to_line_bounds", "delete_selection", "paste_after" ]
+"A-k" = [ "extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before" ]
+
+[editor.inline-diagnostics]
+other-lines = "hint"
+cursor-line = "hint"
