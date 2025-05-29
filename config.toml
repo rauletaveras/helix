@@ -3,6 +3,22 @@ theme = "gruvbox_dark_hard"
 
 [editor]
 rulers = [80, 100]
+cursorline = true
+color-modes = true
+true-color = true
+jump-label-alphabet = "crstneiagmwlypfouqjvdhkbxz"
+
+[editor.statusline]
+left = ["mode", "spinner", "read-only-indicator", "file-modification-indicator"]
+center = ["file-name", "version-control"]
+right = ["diagnostics", "selections", "position", "file-encoding", "file-type"]
+separator = "│"
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+
+[editor.indent-guides]
+render = true
 
 [editor.cursor-shape]
 insert = "bar"
@@ -12,12 +28,32 @@ select = "underline"
 [keys.normal]
 q = "insert_newline"
 C-q = "replay_macro"
+X = "select_line_above"
 # Makes it a little bit more like vim
 ";" = "repeat_last_motion"
 L = "collapse_selection"
 C-s = ":w"
 "A-j" = [ "extend_to_line_bounds", "delete_selection", "paste_after" ]
 "A-k" = [ "extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before" ]
+ret = "goto_word"
+
+# Match in next instance of pair
+[keys.normal.m.n]
+"(" = "@s\\(<ret>nmim"
+"{" = "@s\\{<ret>nmim"
+"[" = "@s\\[<ret>nmim"
+'"' = '@s\"<ret>nmim'
+"'" = "@s\\'<ret>nmim"
+"<" = "@s<lt><ret>nmim"
+
+# Match in previous instance of pair
+[keys.normal.m.p]
+"(" = "@s\\)<ret>Nmmmim"
+"{" = "@s\\}<ret>Nmmmim"
+"[" = "@s\\]<ret>Nmmmim"
+'"' = '@s\"<ret>Nmmmim'
+"'" = "@s\\'<ret>Nmmmim"
+"<" = "@s<gt><ret>Nmmmim"
 
 [editor.inline-diagnostics]
 other-lines = "hint"
