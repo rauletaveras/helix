@@ -36,6 +36,8 @@ C-s = ":w"
 "A-j" = [ "extend_to_line_bounds", "delete_selection", "paste_after" ]
 "A-k" = [ "extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before" ]
 ret = "goto_word"
+"{" = "goto_prev_paragraph"
+"}" = "goto_next_paragraph"
 
 # Match in next instance of pair
 [keys.normal.m.n]
