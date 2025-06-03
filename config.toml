@@ -8,6 +8,11 @@ color-modes = true
 true-color = true
 jump-label-alphabet = "crstneiagmwlypfouqjvdhkbxz"
 
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
 [editor.statusline]
 left = ["mode", "spinner", "read-only-indicator", "file-modification-indicator"]
 center = ["file-name", "version-control"]
@@ -20,13 +25,12 @@ mode.select = "SELECT"
 [editor.indent-guides]
 render = true
 
-[editor.cursor-shape]
-insert = "bar"
-normal = "block"
-select = "underline"
+[editor.soft-wrap]
+enable = true
 
 [keys.normal]
-q = "insert_newline"
+q = ["move_prev_word_start", "insert_newline"]
+Q = ["move_prev_long_word_start", "insert_newline"]
 C-q = "replay_macro"
 X = "select_line_above"
 # Makes it a little bit more like vim
