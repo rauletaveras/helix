@@ -34,8 +34,8 @@ Q = ["move_prev_long_word_start", "insert_newline"]
 C-q = "replay_macro"
 X = "select_line_above"
 # Makes it a little bit more like vim
-";" = "repeat_last_motion"
-L = "collapse_selection"
+# ";" = "repeat_last_motion"
+# L = "collapse_selection"
 C-s = ":w"
 "A-j" = [ "extend_to_line_bounds", "delete_selection", "paste_after" ]
 "A-k" = [ "extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before" ]
@@ -60,6 +60,10 @@ ret = "goto_word"
 '"' = '@s\"<ret>Nmmmim'
 "'" = "@s\\'<ret>Nmmmim"
 "<" = "@s<gt><ret>Nmmmim"
+
+[keys.insert]
+"C-backspace" = "delete_word_backward"
+"C-del" = "delete_word_forward"
 
 [editor.inline-diagnostics]
 other-lines = "hint"
