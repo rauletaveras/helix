@@ -33,6 +33,7 @@ q = ["move_prev_word_start", "insert_newline"]
 Q = ["move_prev_long_word_start", "insert_newline"]
 C-q = "replay_macro"
 X = "select_line_above"
+C-a = "select_all"
 # Makes it a little bit more like vim
 # ";" = "repeat_last_motion"
 # L = "collapse_selection"
@@ -42,6 +43,8 @@ C-s = ":w"
 ret = "goto_word"
 "{" = "goto_prev_paragraph"
 "}" = "goto_next_paragraph"
+H = "move_prev_sub_word_start"
+L = "move_next_sub_word_start"
 
 # Match in next instance of pair
 [keys.normal.m.n]
