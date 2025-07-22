@@ -45,6 +45,12 @@ ret = "goto_word"
 "}" = "goto_next_paragraph"
 H = "move_prev_sub_word_start"
 L = "move_next_sub_word_start"
+C-y = [
+  ':sh del C:\unique-file',
+  ':insert-output yazi.exe %{buffer_name} --chooser-file=C:\unique-file',
+  ':open %sh{type C:\unique-file}',
+  ':redraw',
+]
 
 # Match in next instance of pair
 [keys.normal.m.n]
