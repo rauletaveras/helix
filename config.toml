@@ -46,9 +46,9 @@ ret = "goto_word"
 H = "move_prev_sub_word_start"
 L = "move_next_sub_word_start"
 C-y = [
-  ':sh del C:\unique-file',
-  ':insert-output yazi.exe %{buffer_name} --chooser-file=C:\unique-file',
-  ':open %sh{type C:\unique-file}',
+  ':sh del C:\temp\unique-file',
+  ':insert-output yazi.exe %{buffer_name} --chooser-file=C:\temp\unique-file',
+  ':open %sh{type C:\temp\unique-file}',
   ':redraw',
 ]
 
