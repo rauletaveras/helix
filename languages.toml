@@ -9,6 +9,7 @@ LongSentences = false
 [[language]]
 name = "markdown"
 language-servers = ["marksman", "harper-ls"]
+formatter = { command = "dprint", args = ["fmt", "--stdin", "md"]}
 
 [language-server.tinymist]
 command = "tinymist"
