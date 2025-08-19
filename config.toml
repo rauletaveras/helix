@@ -7,6 +7,7 @@ cursorline = true
 color-modes = true
 true-color = true
 jump-label-alphabet = "crstneiagmwlypfouqjvdhkbxz"
+shell = ["powershell", "-NoProfile", "-Command"]
 
 [editor.cursor-shape]
 insert = "bar"
@@ -31,12 +32,10 @@ enable = true
 [keys.normal]
 q = ["move_prev_word_start", "insert_newline"]
 Q = ["move_prev_long_word_start", "insert_newline"]
-C-q = "replay_macro"
+C-q = "record_macro"
+A-q = "replay_macro"
 X = "select_line_above"
 C-a = "select_all"
-# Makes it a little bit more like vim
-# ";" = "repeat_last_motion"
-# L = "collapse_selection"
 C-s = ":w"
 "A-j" = [ "extend_to_line_bounds", "delete_selection", "paste_after" ]
 "A-k" = [ "extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before" ]
@@ -51,6 +50,14 @@ C-y = [
   ':open %sh{type C:\temp\unique-file}',
   ':redraw',
 ]
+
+[keys.normal."space".z]
+# s = ":sh zettel note create (zettel id next-sibling (zettel id parse '%{buffer_name}'))"
+s = ":sh zettel id parse %{buffer_name} | zettel id next-sibling | zettel note create"
+# S = [
+#   ":sh zettel note create (zettel id next-sibling (zettel id parse '%{buffer_name}'))",
+#   ":o (zettel id next-sibling (zettel id parse '%{buffer_name}'))"
+#   ]
 
 # Match in next instance of pair
 [keys.normal.m.n]
