@@ -6,7 +6,8 @@ rulers = [80, 100]
 cursorline = true
 color-modes = true
 true-color = true
-jump-label-alphabet = "crstneiagmwlypfouqjvdhkbxz"
+rainbow-brackets = true
+jump-label-alphabet = "smtneriacgwlypfouqjvdhbxkz"
 shell = ["powershell", "-NoProfile", "-Command"]
 
 [editor.cursor-shape]
@@ -29,6 +30,10 @@ render = true
 [editor.soft-wrap]
 enable = true
 
+[editor.inline-diagnostics]
+other-lines = "disable"
+cursor-line = "hint"
+
 [keys.normal]
 q = ["move_prev_word_start", "insert_newline"]
 Q = ["move_prev_long_word_start", "insert_newline"]
@@ -37,8 +42,13 @@ A-q = "replay_macro"
 X = "select_line_above"
 C-a = "select_all"
 C-s = ":w"
-"A-j" = [ "extend_to_line_bounds", "delete_selection", "paste_after" ]
-"A-k" = [ "extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before" ]
+"A-j" = ["extend_to_line_bounds", "delete_selection", "paste_after"]
+"A-k" = [
+  "extend_to_line_bounds",
+  "delete_selection",
+  "move_line_up",
+  "paste_before",
+]
 ret = "goto_word"
 "{" = "goto_prev_paragraph"
 "}" = "goto_next_paragraph"
@@ -48,18 +58,15 @@ C-y = [
   ':sh del C:\temp\unique-file',
   ':insert-output yazi.exe %{buffer_name} --chooser-file=C:\temp\unique-file',
   ':open %sh{type C:\temp\unique-file}',
-  ':redraw',
+  ":redraw",
 ]
 
 # Commands designed to work with my `zettel-cli` program
 [keys.normal."space".z]
-
 # Generate sibling note (no open)
 s = ":sh zettel id parse %{buffer_name} | zettel id next-sibling | zettel note create"
-
 # Generate child note (no open)
 c = ":sh zettel id parse %{buffer_name} | zettel id next-child | zettel note create"
-
 # Search vault for selection and print results into buffer
 f = ":append-output zettel search %{selection}"
 
@@ -85,6 +92,3 @@ f = ":append-output zettel search %{selection}"
 "C-backspace" = "delete_word_backward"
 "C-del" = "delete_word_forward"
 
-[editor.inline-diagnostics]
-other-lines = "disable"
-cursor-line = "hint"
