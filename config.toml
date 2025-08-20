@@ -51,13 +51,17 @@ C-y = [
   ':redraw',
 ]
 
+# Commands designed to work with my `zettel-cli` program
 [keys.normal."space".z]
-# s = ":sh zettel note create (zettel id next-sibling (zettel id parse '%{buffer_name}'))"
+
+# Generate sibling note (no open)
 s = ":sh zettel id parse %{buffer_name} | zettel id next-sibling | zettel note create"
-# S = [
-#   ":sh zettel note create (zettel id next-sibling (zettel id parse '%{buffer_name}'))",
-#   ":o (zettel id next-sibling (zettel id parse '%{buffer_name}'))"
-#   ]
+
+# Generate child note (no open)
+c = ":sh zettel id parse %{buffer_name} | zettel id next-child | zettel note create"
+
+# Search vault for selection and print results into buffer
+f = ":append-output zettel search %{selection}"
 
 # Match in next instance of pair
 [keys.normal.m.n]
