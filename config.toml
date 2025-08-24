@@ -1,5 +1,5 @@
-# theme = "catppuccin_macchiato"
-theme = "gruvbox_dark_hard"
+theme = "catppuccin_macchiato"
+# theme = "gruvbox_dark_hard"
 
 [editor]
 rulers = [80, 100]
@@ -60,6 +60,7 @@ C-y = [
   ':open %sh{type C:\temp\unique-file}',
   ":redraw",
 ]
+minus = "trim_selections"
 
 # Commands designed to work with my `zettel-cli` program
 [keys.normal."space".z]
@@ -87,6 +88,13 @@ f = ":append-output zettel search %{selection}"
 '"' = '@s\"<ret>Nmmmim'
 "'" = "@s\\'<ret>Nmmmim"
 "<" = "@s<gt><ret>Nmmmim"
+
+[keys.normal.Z]
+b = "page_up"
+f = "page_down"
+u = "page_cursor_half_up"
+d = "page_cursor_half_down"
+
 
 [keys.insert]
 "C-backspace" = "delete_word_backward"
