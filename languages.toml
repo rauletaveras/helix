@@ -6,14 +6,19 @@ args = ["--stdio"]
 Spaces = false
 LongSentences = false
 
-[[language]]
-name = "markdown"
-language-servers = ["marksman", "harper-ls"]
-formatter = { command = "dprint", args = ["fmt", "--stdin", "md"]}
-
 [language-server.tinymist]
 command = "tinymist"
 
 [[language]]
+name = "markdown"
+language-servers = ["marksman", "harper-ls"]
+formatter = { command = "dprint", args = ["fmt", "--stdin", "md"] }
+
+[[language]]
 name = "typst"
 language-servers = ["tinymist", "harper-ls"]
+
+[[language]]
+name = "yaml"
+file-types = ["yaml", "yml"]
+indent = {tab-width = 2, unit = " "}

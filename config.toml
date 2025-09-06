@@ -6,9 +6,11 @@ rulers = [80, 100]
 cursorline = true
 color-modes = true
 true-color = true
-rainbow-brackets = true
-jump-label-alphabet = "smtneriacgwlypfouqjvdhbxkz"
-shell = ["powershell", "-NoProfile", "-Command"]
+# rainbow-brackets = true
+line-number = "relative"
+jump-label-alphabet = "thsancelmoyuigfpvjwkqzd"
+# shell = ["powershell", "-NoProfile", "-Command"]
+shell = ["nu", "-c"]
 
 [editor.cursor-shape]
 insert = "bar"
@@ -26,6 +28,8 @@ mode.select = "SELECT"
 
 [editor.indent-guides]
 render = true
+character = "⸽"
+# skip-levels = 1
 
 [editor.soft-wrap]
 enable = true
@@ -54,12 +58,12 @@ ret = "goto_word"
 "}" = "goto_next_paragraph"
 H = "move_prev_sub_word_start"
 L = "move_next_sub_word_start"
-C-y = [
-  ':sh del C:\temp\unique-file',
-  ':insert-output yazi.exe %{buffer_name} --chooser-file=C:\temp\unique-file',
-  ':open %sh{type C:\temp\unique-file}',
-  ":redraw",
-]
+# C-y = [
+#   ':sh del C:\temp\unique-file',
+#   ':insert-output yazi.exe %{buffer_name} --chooser-file=C:\temp\unique-file',
+#   ':open %sh{type C:\temp\unique-file}',
+#   ":redraw",
+# ]
 minus = "trim_selections"
 
 # Commands designed to work with my `zettel-cli` program
@@ -94,7 +98,6 @@ b = "page_up"
 f = "page_down"
 u = "page_cursor_half_up"
 d = "page_cursor_half_down"
-
 
 [keys.insert]
 "C-backspace" = "delete_word_backward"
