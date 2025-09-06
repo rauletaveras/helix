@@ -8,9 +8,9 @@ color-modes = true
 true-color = true
 # rainbow-brackets = true
 line-number = "relative"
-jump-label-alphabet = "thsancelmoyuigfpvjwkqzd"
 # shell = ["powershell", "-NoProfile", "-Command"]
 shell = ["nu", "-c"]
+jump-label-alphabet = "smtneriacgwlypfouqjvdhbxkz"
 
 [editor.cursor-shape]
 insert = "bar"
