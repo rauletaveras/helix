@@ -22,3 +22,7 @@ language-servers = ["tinymist", "harper-ls"]
 name = "yaml"
 file-types = ["yaml", "yml"]
 indent = {tab-width = 2, unit = " "}
+
+[[language]]
+name = "javascript"
+file-types = ["js"]
