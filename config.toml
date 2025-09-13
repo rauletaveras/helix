@@ -1,4 +1,5 @@
-theme = "catppuccin_macchiato"
+theme = "ayu_mirage"
+# theme = "catppuccin_macchiato"
 # theme = "gruvbox_dark_hard"
 
 [editor]
@@ -18,13 +19,19 @@ normal = "block"
 select = "underline"
 
 [editor.statusline]
-left = ["mode", "spinner", "read-only-indicator", "file-modification-indicator"]
-center = ["file-name",]
-right = ["diagnostics", "selections", "position", "file-encoding", "file-type"]
+left = ["mode", "spinner", "file-name"]
+center = [
+  "read-only-indicator",
+  "file-modification-indicator",
+  "selections",
+  "position",
+  "file-type",
+]
+right = ["diagnostics", "file-encoding", "file-line-ending"]
 separator = "│"
-mode.normal = "NORMAL"
-mode.insert = "INSERT"
-mode.select = "SELECT"
+mode.normal = "NOR"
+mode.insert = "INS"
+mode.select = "SEL"
 
 [editor.indent-guides]
 render = true
@@ -36,7 +43,7 @@ enable = true
 
 [editor.inline-diagnostics]
 other-lines = "disable"
-cursor-line = "hint"
+cursor-line = "warning"
 
 [keys.normal]
 # Quick iteration on config changes.
@@ -48,6 +55,7 @@ H = "move_prev_sub_word_start"
 L = "move_next_sub_word_start"
 "{" = ["goto_prev_paragraph", "collapse_selection"]
 "}" = ["goto_next_paragraph", "collapse_selection"]
+"." = "repeat_last_motion" # I never use repeat insert, so...
 
 # Escape madness easily.
 esc = ["collapse_selection", "keep_primary_selection"]
@@ -70,7 +78,11 @@ A-q = "replay_macro"
 X = "select_line_above"
 
 # Allow moving lines up and down
-"A-j" = ["extend_to_line_bounds", "delete_selection", "paste_after"]
+"A-j" = [
+  "extend_to_line_bounds",
+  "delete_selection",
+  "paste_after"
+]
 "A-k" = [
   "extend_to_line_bounds",
   "delete_selection",
