@@ -7,17 +7,19 @@ rulers = [80, 100]
 cursorline = true
 color-modes = true
 true-color = true
-# rainbow-brackets = true # Disabled since it currently requires building from source.
 line-number = "relative"
-# shell = ["powershell", "-NoProfile", "-Command"]
 shell = ["nu", "-c"]
 jump-label-alphabet = "smtneriacgwlypfouqjvdhbxkz"
+# shell = ["powershell", "-NoProfile", "-Command"]
+# rainbow-brackets = true # Disabled since it currently requires building from source.
 
 [editor.cursor-shape]
 insert = "bar"
 normal = "block"
 select = "underline"
 
+# I don't code basically ever,
+# so I don't need complex features.
 [editor.statusline]
 left = ["mode", "spinner", "file-name"]
 center = [
@@ -29,21 +31,29 @@ center = [
 ]
 right = ["diagnostics", "file-encoding", "file-line-ending"]
 separator = "│"
-mode.normal = "NOR"
-mode.insert = "INS"
-mode.select = "SEL"
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
 
 [editor.indent-guides]
 render = true
 character = "⸽"
-# skip-levels = 1
 
 [editor.soft-wrap]
 enable = true
+# I decided to go with unmarked soft wrap
+# because even though I use semantic linefeeds,
+# a lot of documents are not written with that in mind.
+# We also don't have terminal restrictions like we used to,
+# at least none that I'd come up against.
+wrap-indicator = ""
 
 [editor.inline-diagnostics]
 other-lines = "disable"
 cursor-line = "warning"
+
+[editor.smart-tab]
+enable = false
 
 [keys.normal]
 # Quick iteration on config changes.
@@ -55,7 +65,9 @@ H = "move_prev_sub_word_start"
 L = "move_next_sub_word_start"
 "{" = ["goto_prev_paragraph", "collapse_selection"]
 "}" = ["goto_next_paragraph", "collapse_selection"]
-"." = "repeat_last_motion" # I never use repeat insert, so...
+# More ergonomic than <gw>,
+# especially in my Night keyboard layout.
+ret = "goto_word"
 
 # Escape madness easily.
 esc = ["collapse_selection", "keep_primary_selection"]
@@ -63,6 +75,16 @@ esc = ["collapse_selection", "keep_primary_selection"]
 # Allows adding newlines easier.
 o = ["open_below", "normal_mode"]
 O = ["open_above", "normal_mode"]
+ 
+# From helix-vim:
+# If you want to keep the selection-while-moving behaviour of Helix, this two lines will help a lot,
+# especially if you find having text remain selected while you have switched to insert or append mode
+#
+# There is no real difference if you have overridden the commands bound to 'w', 'e' and 'b' like above
+# But if you really want to get familiar with the Helix way of selecting-while-moving, comment the
+# bindings for 'w', 'e', and 'b' out and leave the bindings for 'i' and 'a' active below. A world of difference!
+i = ["insert_mode", "collapse_selection"]
+a = ["append_mode", "collapse_selection"]
 
 # Moving things to next line;
 # useful for semantic linefeeds.
@@ -90,26 +112,16 @@ X = "select_line_above"
   "paste_before",
 ]
 
-# More ergonomic than <gw>,
-# especially in my Night keyboard layout.
-ret = "goto_word"
 
-# Currently disabled bc it breaks in Windows + Nushell
-# C-y = [
-#   ':sh del C:\temp\unique-file',
-#   ':insert-output yazi.exe %{buffer_name} --chooser-file=C:\temp\unique-file',
-#   ':open %sh{type C:\temp\unique-file}',
-#   ":redraw",
-# ]
-
-# Commands designed to work with my `zettel-cli` program
-[keys.normal."space".z]
-# Generate sibling note (no open)
-s = ":sh zettel id parse %{buffer_name} | zettel id next-sibling | zettel note create"
-# Generate child note (no open)
-c = ":sh zettel id parse %{buffer_name} | zettel id next-child | zettel note create"
-# Search vault for selection and print results into buffer
-f = ":append-output zettel search %{selection}"
+# Configuration to use yazi as file manager
+# compatible with Windows + Nushell,
+# my current use case.
+C-y = [
+  ':sh rm --force C:\temp\unique-file',
+  ':insert-output yazi.exe %{buffer_name} --chooser-file=C:\temp\unique-file',
+  ':open %sh{open --raw C:\temp\unique-file}',
+  ":redraw",
+]
 
 # Match in next instance of pair
 [keys.normal.m.n]
@@ -130,13 +142,30 @@ f = ":append-output zettel search %{selection}"
 "<" = "@s<gt><ret>Nmmmim"
 
 [keys.normal.Z]
+# Since I use callum-style mods,
+# having to hold down Ctrl and repeatedly press letters
+# is literally impossible.
+# This rebinding lets me more easily browse a file
+# without using a modifier.
 b = "page_up"
 f = "page_down"
 u = "page_cursor_half_up"
 d = "page_cursor_half_down"
 
+# From helix-vim
+Z = ":wq"
+
+# # Commands designed to work with my `zettel-cli` program
+# [keys.normal."space".z]
+# # Generate sibling note (no open)
+# s = ":sh zettel id parse %{buffer_name} | zettel id next-sibling | zettel note create"
+# # Generate child note (no open)
+# c = ":sh zettel id parse %{buffer_name} | zettel id next-child | zettel note create"
+# # Search vault for selection and print results into buffer
+# f = ":append-output zettel search %{selection}"
+ 
 [keys.select]
-# Allow selecting paragraphs finally.
+# Allow selecting paragraphs, finally.
 "{" = ["extend_to_line_bounds", "goto_prev_paragraph"]
 "}" = ["extend_to_line_bounds", "goto_next_paragraph"]
 
