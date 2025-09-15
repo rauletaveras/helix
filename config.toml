@@ -10,6 +10,7 @@ true-color = true
 line-number = "relative"
 shell = ["nu", "-c"]
 jump-label-alphabet = "smtneriacgwlypfouqjvdhbxkz"
+end-of-line-diagnostics = "disable"
 # shell = ["powershell", "-NoProfile", "-Command"]
 # rainbow-brackets = true # Disabled since it currently requires building from source.
 
@@ -31,6 +32,7 @@ center = [
 ]
 right = ["diagnostics", "file-encoding", "file-line-ending"]
 separator = "│"
+diagnostics = ["warning", "error", "hint"]
 mode.normal = "NORMAL"
 mode.insert = "INSERT"
 mode.select = "SELECT"
@@ -121,6 +123,7 @@ C-y = [
   ':insert-output yazi.exe %{buffer_name} --chooser-file=C:\temp\unique-file',
   ':open %sh{open --raw C:\temp\unique-file}',
   ":redraw",
+  ":reload-all"
 ]
 
 # Match in next instance of pair

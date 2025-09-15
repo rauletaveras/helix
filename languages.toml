@@ -9,9 +9,13 @@ LongSentences = false
 [language-server.tinymist]
 command = "tinymist"
 
+[language-server.mpls]
+command = "mpls"
+args = ["--enable-emoji"]
+
 [[language]]
 name = "markdown"
-language-servers = ["marksman", "harper-ls"]
+language-servers = ["marksman", "harper-ls", "mpls"]
 formatter = { command = "dprint", args = ["fmt", "--stdin", "md"] }
 auto-format = true
 
@@ -22,7 +26,7 @@ language-servers = ["tinymist", "harper-ls"]
 [[language]]
 name = "yaml"
 file-types = ["yaml", "yml"]
-indent = {tab-width = 2, unit = " "}
+indent = { tab-width = 2, unit = " " }
 
 [[language]]
 name = "javascript"
