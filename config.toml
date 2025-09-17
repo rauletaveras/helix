@@ -40,7 +40,7 @@ separator = "│"
 diagnostics = ["warning", "error", "hint"]
 mode.normal = "NORMAL"
 mode.insert = "INSERT"
-mode.select = "SELECT"
+mode.select = "EXTEND"
 
 [editor.indent-guides]
 render = true
@@ -97,6 +97,7 @@ a = ["append_mode", "collapse_selection"]
 # useful for semantic linefeeds.
 q = ["move_prev_word_start", "insert_newline"]
 Q = ["move_prev_long_word_start", "insert_newline"]
+J = ["join_selections_space"]
 
 # Remapping macros to facilitate the above
 # since I very, very rarely use macros.
@@ -181,5 +182,3 @@ Z = ":wq"
 # Makes word deletes from other programs work here.
 "C-backspace" = "delete_word_backward"
 "C-del" = "delete_word_forward"
-
-
