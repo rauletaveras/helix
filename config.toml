@@ -11,13 +11,13 @@ line-number = "relative"
 shell = ["nu", "-c"]
 jump-label-alphabet = "smtneriacgwlypfouqjvdhbxkz"
 end-of-line-diagnostics = "disable"
-# shell = ["powershell", "-NoProfile", "-Command"]
 # This was previously disabled
 # since I can't build from source on my work PC,
 # but thankfully,
 # I can just copy the .exe and grammars
 # over on a thumb drive
 rainbow-brackets = true # Disabled since it currently requires building from source.
+# shell = ["powershell", "-NoProfile", "-Command"]
 
 [editor.cursor-shape]
 insert = "bar"
